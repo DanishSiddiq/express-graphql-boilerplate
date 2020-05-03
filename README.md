@@ -1,10 +1,10 @@
-# express-api-boilerplate - In Progress
-Server setup with express framework basic features
+# express-graphql-boilerplate - In Progress
+Server setup with express framework and graphql
 
-**Description**
-* Express framework based backend api application
-* express-api-problem for error consistency across the application
-* mongodb database
+**Features**
+* Express framework
+* GraphQL
+* MongoDB 
 * rabbitMQ producer and consumer support - ~~Currently RabbitMQ connection method is commnented while setting up server in app.js~~
 * rabbitMQ auto re-connectivity logic after RabbitMQ is down from application
 * configurations are in .config.json and local configuration can be override in .config.override.json
@@ -72,6 +72,18 @@ fragment studentFields on Student {
     		email
 		    createdAt
     		updatedAt
+}
+```
+
+#
+**GraphQL Queries Variables:**
+```
+{
+  "studentId": "5e727fa7b9f23a1c643e671f",
+  "firstName": "Danish",
+  "lastName": "Siddiq",
+  "registrationNumber": 543678,
+  "email": "danish.siddiq@gmail.com"
 }
 ```
 
