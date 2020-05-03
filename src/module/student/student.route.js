@@ -7,7 +7,7 @@ const studentController = require('./student.ctrl');
 // GraphQL schema
 var schema = buildSchema(`
     scalar Date
-    , input inputSearch {
+    , input SearchInput {
         _id: String,
         firstName: String,
         lastName: String, 
@@ -15,7 +15,7 @@ var schema = buildSchema(`
         email: String,
     }
 
-    input inputStudent {
+    input StudentInput {
         firstName: String,
         lastName: String, 
         registrationNumber: Int, 
@@ -23,7 +23,7 @@ var schema = buildSchema(`
     }
     
     type Student {        
-        _id: String,
+        _id: ID,
         firstName: String, 
         lastName: String, 
         registrationNumber: Int, 
@@ -39,13 +39,13 @@ var schema = buildSchema(`
     }
     
     type Query {
-        find(input: inputSearch!): [Student]
-        findOne(input: inputSearch!): Student
+        find(input: SearchInput!): [Student]
+        findOne(input: SearchInput!): Student
     }  
     
     type Mutation {
-        create (input: inputStudent!): Student!
-        update (_id: String!, input: inputStudent!): mutationResult!
+        create (input: StudentInput!): Student!
+        update (_id: String!, input: StudentInput!): mutationResult!
         delete (_id: String!): mutationResult!
       }
 `);
@@ -59,6 +59,7 @@ var root = {
     delete: studentController.deleteOne
 };
 
+// router
 const router = Router();
 router.use('/api/v1/student', express_graphql({
     schema: schema,
