@@ -5,8 +5,6 @@ Server setup with express framework and graphql
 * Express framework
 * GraphQL
 * MongoDB 
-* rabbitMQ producer and consumer support - ~~Currently RabbitMQ connection method is commnented while setting up server in app.js~~
-* rabbitMQ auto re-connectivity logic after RabbitMQ is down from application
 * configurations are in .config.json and local configuration can be override in .config.override.json
 
 #
