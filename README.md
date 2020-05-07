@@ -68,7 +68,7 @@ fragment studentFields on Student {
     		lastName
     		registrationNumber
     		email
-		    createdAt
+		createdAt
     		updatedAt
 }
 ```
