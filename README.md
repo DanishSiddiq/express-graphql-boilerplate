@@ -63,13 +63,13 @@ mutation deleteStudent($studentId: String!) {
 
 
 fragment studentFields on Student {
-  			_id
+  	_id
         firstName
-    		lastName
-    		registrationNumber
-    		email
-		createdAt
-    		updatedAt
+    	lastName
+    	registrationNumber
+    	email
+	createdAt
+    	updatedAt
 }
 ```
 
