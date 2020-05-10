@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const mongooseValidator = require('express-api-problem/mongoose-validator');
 
-const studentSchema = new mongoose.Schema(
+const lecturerSchema = new mongoose.Schema(
     {
             firstName: {
                     type: String,
@@ -17,7 +17,7 @@ const studentSchema = new mongoose.Schema(
                     unique: true,
                     trim: true
             },
-            registrationNumber: {
+            serviceNumber: {
                     type: Number,
                     required: true
             },
@@ -34,6 +34,6 @@ const studentSchema = new mongoose.Schema(
     },
 );
 
-studentSchema.plugin(mongooseValidator);
+lecturerSchema.plugin(mongooseValidator);
 
-module.exports = mongoose.model('student', studentSchema, 'students');
+module.exports = mongoose.model('lecturer', lecturerSchema, 'lecturers');

@@ -10,6 +10,7 @@ const { mongoDbConnect } = require('./database-connections/db.mongo');
 // routers file
 const routerHealth  = require('./module/health/health.route');
 const routerStudent = require('./module/student/student.route');
+const routerLecturer = require('./module/lecturer/lecturer.route');
 
 // middle-wares
 const ConfigLoaderMiddleware = require('./middlewares/config-loader');
@@ -42,6 +43,7 @@ app
   .use('/', routerHealth)
   // routes after middleware validation
   .use('/', ConfigLoaderMiddleware, routerStudent)
+  .use('/', ConfigLoaderMiddleware, routerLecturer)
   // RouteNotFound middle-wares must
   .use(RouteNotFoundMiddleware) 
   // ExceptionHandler will be the last one to be registered
