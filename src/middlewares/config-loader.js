@@ -9,18 +9,16 @@ const HttpStatus = require('http-status-codes');
  * @constructor
  */
 const ConfigLoaderMiddleware = (req, res, next) => {
-  /** @type {{ apiKey }} */
-  const params = {
-    ...req.body,
-    ...req.query,
-  };
 
+  // just an example to set key in the response header
   res.header({
-    'x-connection-id': 'abcdefghijklmnopqrstuvwxzy' // just an example to set key in the header
+    'x-connection-id': 'abcdefghijklmnopqrstuvwxzy'
   });
 
+  const apiKey = req.get('x-api-key');
+
   // If key is provided then check for its configuration
-  if (params.apiKey && params.apiKey === 'test-authorization-key') {
+  if (apiKey && apiKey === 'test-authorization-key') {
     throw new ApiProblem(HttpStatus.FORBIDDEN, 'Unauthorized', 'Invalid apiKey received');
   }
 
