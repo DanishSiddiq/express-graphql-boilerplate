@@ -5,7 +5,7 @@ const { buildSchema } = require('graphql');
 const studentController = require('./student.ctrl');
 
 // GraphQL schema
-var schema = buildSchema(`
+const schema = buildSchema(`
     scalar Date
     , input SearchInput {
         _id: String,
@@ -51,7 +51,7 @@ var schema = buildSchema(`
 `);
 
 // Root resolver
-var root = {
+const root = {
     find: studentController.find,
     findOne: studentController.findOne,    
     create: studentController.createOne,
